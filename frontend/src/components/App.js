@@ -39,6 +39,8 @@ function App(props) {
 
   const [isInfoTooltipOpen, setisInfoTooltipOpen] = React.useState(false);
 
+  const token = localStorage.getItem('token');
+
   React.useEffect(() => {
     Promise.all([api.getUserInfoApi(), api.getInitialCards()])
       .then(([userData, cardData]) => {
@@ -57,7 +59,7 @@ function App(props) {
     const isLiked = likes.some((i) => i._id === currentUser._id);
 
     api
-      .changeLikeCardStatus(_id, isLiked)
+      .changeLikeCardStatus(_id, isLiked, token)
       .then((newCard) => {
         setCards((state) => state.map((c) => (c._id === _id ? newCard : c)));
       })
@@ -68,7 +70,7 @@ function App(props) {
 
   function handleCardDelete(_id) {
     api
-      .deleteCard(_id)
+      .deleteCard(_id, token)
       .then(() => {
         setCards((state) => state.filter((c) => c._id !== _id));
       })
@@ -145,7 +147,7 @@ function App(props) {
 
   function handleUpdateUser(name, about) {
     api
-      .updateUserInfo(name, about)
+      .updateUserInfo(name, about, token)
       .then((data) => {
         setCurrentUser(data);
       })
@@ -159,7 +161,7 @@ function App(props) {
 
   function handleUpdateAvatar(avatar) {
     api
-      .updateAvatar(avatar)
+      .updateAvatar(avatar, token)
       .then((data) => {
         setCurrentUser(data);
       })
@@ -173,7 +175,7 @@ function App(props) {
 
   function handleAddPlace(name, link) {
     api
-      .addCard(name, link)
+      .addCard(name, link, token)
       .then((data) => {
         setCards([data, ...cards]);
       })
