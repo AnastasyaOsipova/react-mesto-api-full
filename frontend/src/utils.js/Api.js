@@ -77,10 +77,9 @@ class Api {
 }
 
 const api = new Api({
-  url: "https://mesto.nomoreparties.co/v1/cohort-30/",
+  url: "https://api.molchanova.students.nomoredomains.icu",
   headers: {
-    authorization: "6c6307bf-f204-483f-a472-5319b4c7128b",
-    "Content-Type": "application/json",
+      "Content-Type": "application/json",
   },
 });
 
