@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 mongoose.connect('mongodb://localhost:27017/mestodb');
 
 app.use(cors({
-  Origin: 'https://molchanova.students.nomoredomains.icu',
+  Origin: 'https://molchanova.students.nomoredomains.icu/',
 }));
 
 app.use(requestLogger);
