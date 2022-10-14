@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import Header from "./Header";
@@ -39,8 +38,6 @@ function App(props) {
 
   const [isInfoTooltipOpen, setisInfoTooltipOpen] = React.useState(false);
 
-  const token = localStorage.getItem('token');
-
   React.useEffect(() => {
     Promise.all([api.getUserInfoApi(), api.getInitialCards()])
       .then(([userData, cardData]) => {
@@ -59,7 +56,7 @@ function App(props) {
     const isLiked = likes.some((i) => i._id === currentUser._id);
 
     api
-      .changeLikeCardStatus(_id, isLiked, token)
+      .changeLikeCardStatus(_id, isLiked)
       .then((newCard) => {
         setCards((state) => state.map((c) => (c._id === _id ? newCard : c)));
       })
@@ -70,7 +67,7 @@ function App(props) {
 
   function handleCardDelete(_id) {
     api
-      .deleteCard(_id, token)
+      .deleteCard(_id)
       .then(() => {
         setCards((state) => state.filter((c) => c._id !== _id));
       })
@@ -147,7 +144,7 @@ function App(props) {
 
   function handleUpdateUser(name, about) {
     api
-      .updateUserInfo(name, about, token)
+      .updateUserInfo(name, about)
       .then((data) => {
         setCurrentUser(data);
       })
@@ -161,7 +158,7 @@ function App(props) {
 
   function handleUpdateAvatar(avatar) {
     api
-      .updateAvatar(avatar, token)
+      .updateAvatar(avatar)
       .then((data) => {
         setCurrentUser(data);
       })
@@ -175,7 +172,7 @@ function App(props) {
 
   function handleAddPlace(name, link) {
     api
-      .addCard(name, link, token)
+      .addCard(name, link)
       .then((data) => {
         setCards([data, ...cards]);
       })
