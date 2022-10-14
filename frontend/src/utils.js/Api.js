@@ -4,7 +4,7 @@ class Api {
     this._headers = config.headers;
   }
 
-  _checkResponce(res) {
+    _checkResponce(res) {
     return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
   }
 
@@ -76,10 +76,12 @@ class Api {
   }
 }
 
+const token = localStorage.getItem('token');
+
 const api = new Api({
   url: "https://api.molchanova.students.nomoredomains.icu/",
   headers: {
-    authorization: "6c6307bf-f204-483f-a472-5319b4c7128b",
+    Authorization: `Bearer ${token}`,
     "Content-Type": "application/json",
   },
 });
