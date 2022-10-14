@@ -88,7 +88,7 @@ class Api {
     return fetch(`${this._url}users/me/avatar/`, {
       method: "PATCH",
       headers: {
-        Authorization: `Bearer ${token}`,
+        //Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(data),
