@@ -97,7 +97,7 @@ class Api {
 }
 
 const api = new Api({
-  url: "https://api.molchanova.students.nomoredomains.icu/",
+  url: "https://api.molchanova.students.nomoredomains.icu",
 });
 
 export default api;
