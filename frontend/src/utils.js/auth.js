@@ -1,4 +1,4 @@
-export const BASE_URL = "https://api.molchanova.students.nomoredomains.icu";
+export const BASE_URL = "https://api.molchanova.students.nomoredomains.icu/";
 
 function checkResponce(res) {
   if (res.ok) {

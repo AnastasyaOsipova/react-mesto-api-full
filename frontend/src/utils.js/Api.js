@@ -11,7 +11,7 @@ class Api {
     return fetch(`${this._url}cards/`, {
       method: "GET",
       headers: {
-        //Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
       },
     }).then(this._checkResponce);
@@ -32,7 +32,7 @@ class Api {
     return fetch(`${this._url}users/me/`, {
       method: "GET",
       headers: {
-        //Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
       },
     }).then(this._checkResponce);
@@ -42,7 +42,7 @@ class Api {
     return fetch(`${this._url}users/me/`, {
       method: "PATCH",
       headers: {
-       // Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(data),
@@ -61,7 +61,7 @@ class Api {
     return fetch(`${this._url}cards/likes/${id}`, {
       method: "PUT",
       headers: {
-       // Authorization: `Bearer ${token}`,
+       Authorization: `Bearer ${token}`,
       },
     }).then(this._checkResponce);
   }
@@ -70,7 +70,7 @@ class Api {
     return fetch(`${this._url}cards/likes/${id}`, {
       method: "DELETE",
       headers: {
-        //Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     }).then(this._checkResponce);
   }
@@ -88,7 +88,7 @@ class Api {
     return fetch(`${this._url}users/me/avatar/`, {
       method: "PATCH",
       headers: {
-        //Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(data),
@@ -97,7 +97,7 @@ class Api {
 }
 
 const api = new Api({
-  url: "https://api.molchanova.students.nomoredomains.icu",
+  url: "https://api.molchanova.students.nomoredomains.icu/",
 });
 
 export default api;
