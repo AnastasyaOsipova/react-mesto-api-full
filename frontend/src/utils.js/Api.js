@@ -1,103 +1,85 @@
 class Api {
   constructor(config) {
     this._url = config.url;
+    this._headers = config.headers;
   }
 
   _checkResponce(res) {
     return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
   }
 
-  getInitialCards(token) {
-    return fetch(`${this._url}cards/`, {
+  getInitialCards() {
+    return fetch(`${this._url}cards`, {
       method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      },
+      headers: this._headers,
     }).then(this._checkResponce);
   }
 
-  addCard(data, token) {
-    return fetch(`${this._url}cards/`, {
+  addCard(data) {
+    return fetch(`${this._url}cards`, {
       method: "POST",
-      headers: {
-        //Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      },
+      headers: this._headers,
       body: JSON.stringify(data),
     }).then(this._checkResponce);
   }
 
-  getUserInfoApi(token) {
-    return fetch(`${this._url}users/me/`, {
+  getUserInfoApi() {
+    return fetch(`${this._url}users/me`, {
       method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      },
+      headers: this._headers,
     }).then(this._checkResponce);
   }
 
-  updateUserInfo(data, token) {
-    return fetch(`${this._url}users/me/`, {
+  updateUserInfo(data) {
+    return fetch(`${this._url}users/me`, {
       method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      },
+      headers: this._headers,
       body: JSON.stringify(data),
     }).then(this._checkResponce);
   }
 
-  changeLikeCardStatus(id, isLiked, token) {
+  changeLikeCardStatus(id, isLiked) {
     if (isLiked) {
-      return api.deleteCardLike(id, token);
+      return api.deleteCardLike(id);
     } else {
-      return api.setCardLike(id, token);
+      return api.setCardLike(id);
     }
   }
 
-  setCardLike(id, token) {
+  setCardLike(id) {
     return fetch(`${this._url}cards/likes/${id}`, {
       method: "PUT",
-      headers: {
-       Authorization: `Bearer ${token}`,
-      },
+      headers: this._headers,
     }).then(this._checkResponce);
   }
 
-  deleteCardLike(id, token) {
+  deleteCardLike(id) {
     return fetch(`${this._url}cards/likes/${id}`, {
       method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: this._headers,
     }).then(this._checkResponce);
   }
 
-  deleteCard(cardId, token) {
+  deleteCard(cardId) {
     return fetch(`${this._url}cards/${cardId}`, {
       method: "DELETE",
-      headers: {
-       // Authorization: `Bearer ${token}`,
-      },
+      headers: this._headers,
     }).then(this._checkResponce);
   }
 
-  updateAvatar(data, token) {
+  updateAvatar(data) {
     return fetch(`${this._url}users/me/avatar/`, {
       method: "PATCH",
-      headers: {
-        //Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      },
+      headers: this._headers,
       body: JSON.stringify(data),
     }).then(this._checkResponce);
   }
 }
 
 const api = new Api({
-  url: "https://api.molchanova.students.nomoredomains.icu",
+  url: "https://api.molchanova.students.nomoredomains.icu/",
+  headers: {
+    authorization: "6c6307bf-f204-483f-a472-5319b4c7128b",
+    "Content-Type": "application/json",
+  },
 });
-
-export default api;
