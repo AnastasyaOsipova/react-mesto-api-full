@@ -147,7 +147,7 @@ function App(props) {
     api
       .updateUserInfo(name, about)
       .then((data) => {
-        setCurrentUser(data.data);
+        setCurrentUser(data);
       })
       .then(() => {
         closeAllPopups();
