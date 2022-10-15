@@ -58,7 +58,7 @@ module.exports.likeCard = (req, res, next) => {
     .orFail(() => {
       throw new Error('NotFound');
     })
-    .then((card) => res.send({ data: card }))
+    .then((card) => res.send(card))
     .catch((err) => {
       if (err.name === 'CastError') {
         return next(new ValidationError('Невалидный id'));
@@ -80,7 +80,7 @@ module.exports.dislikeCard = (req, res, next) => {
     .orFail(() => {
       throw new Error('NotFound');
     })
-    .then((card) => res.send({ data: card }))
+    .then((card) => res.send(card))
     .catch((err) => {
       if (err.name === 'CastError') {
         return next(new ValidationError('Невалидный id'));
