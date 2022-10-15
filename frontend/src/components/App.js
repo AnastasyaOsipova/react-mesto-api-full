@@ -69,7 +69,7 @@ function App(props) {
     api
       .deleteCard(_id)
       .then(() => {
-        setCards((state) => state.filter((c) => c._id !== _id));
+        setCards((state) => state.data.filter((c) => c._id !== _id));
       })
       .catch((err) => {
         console.log(err);
