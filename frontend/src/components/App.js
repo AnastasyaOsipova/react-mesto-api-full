@@ -174,7 +174,7 @@ function App(props) {
     api
       .addCard(name, link)
       .then((data) => {
-        setCards([data, ...data.cards]);
+        setCards([data.data, ...cards]);
       })
       .then(() => {
         closeAllPopups();
