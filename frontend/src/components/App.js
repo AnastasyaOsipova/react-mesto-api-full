@@ -39,10 +39,9 @@ function App(props) {
   const [isInfoTooltipOpen, setisInfoTooltipOpen] = React.useState(false);
 
   React.useEffect(() => {
-    
+    localStorage.getItem('token')
     Promise.all([api.getUserInfoApi(), api.getInitialCards()])
-      localStorage.getItem('token')
-      .then(([userData, cardData]) => {
+        .then(([userData, cardData]) => {
         setCurrentUser(userData);
         setCards(cardData);
       })
