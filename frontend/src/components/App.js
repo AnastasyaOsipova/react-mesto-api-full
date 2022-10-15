@@ -41,7 +41,7 @@ function App(props) {
   React.useEffect(() => {
     Promise.all([api.getUserInfoApi(), api.getInitialCards()])
       .then(([userData, cardData]) => {
-        setCurrentUser(userData);
+        setCurrentUser(userData.data);
         setCards(cardData);
       })
       .catch((err) => {
