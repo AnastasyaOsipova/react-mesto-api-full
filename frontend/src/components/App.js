@@ -42,7 +42,7 @@ function App(props) {
     Promise.all([api.getUserInfoApi(), api.getInitialCards()])
       .then(([userData, cardData]) => {
         setCurrentUser(userData.data);
-        setCards(cardData);
+        setCards(cardData.data);
       })
       .catch((err) => {
         console.log(err)
@@ -174,7 +174,7 @@ function App(props) {
     api
       .addCard(name, link)
       .then((data) => {
-        setCards([data.data, ...cards]);
+        setCards([data, ...cards]);
       })
       .then(() => {
         closeAllPopups();
