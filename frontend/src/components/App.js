@@ -53,7 +53,7 @@ function App(props) {
   const [cards, setCards] = React.useState([]);
 
   function handleCardLike(likes, _id) {
-    const isLiked = likes.some((i) => i._id === currentUser._id);
+    const isLiked = likes.some((i) => i.owner === currentUser._id);
 
     api
       .changeLikeCardStatus(_id, isLiked)
