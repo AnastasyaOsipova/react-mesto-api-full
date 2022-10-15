@@ -37,7 +37,7 @@ function Main(props) {
         ></button>
       </section>
       <section className="photo-grid">
-        {props.cards.map((item) => (
+        {props.cards.data.map((item) => (
           <Card
             card={item}
             key={item._id}
