@@ -146,7 +146,7 @@ function App(props) {
     api
       .updateUserInfo(name, about)
       .then((data) => {
-        setCurrentUser(data);
+        setCurrentUser(data.data);
       })
       .then(() => {
         closeAllPopups();
@@ -160,7 +160,7 @@ function App(props) {
     api
       .updateAvatar(avatar)
       .then((data) => {
-        setCurrentUser(data);
+        setCurrentUser(data.data);
       })
       .then(() => {
         closeAllPopups();
