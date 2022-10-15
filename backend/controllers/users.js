@@ -10,7 +10,7 @@ const ConflictError = require('../errors/conflict-err');
 
 module.exports.getUsers = (req, res, next) => {
   User.find({})
-    .then((users) => res.send({ data: users }))
+    .then((users) => res.send(users))
     .catch(next);
 };
 
@@ -71,7 +71,7 @@ module.exports.getUserById = (req, res, next) => {
     .orFail(() => {
       throw new Error('NotFound');
     })
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch((err) => {
       if (err.name === 'CastError') {
         return next(new ValidationError('Невалидный id'));
@@ -89,7 +89,7 @@ module.exports.getUserInfo = (req, res, next) => {
     .orFail(() => {
       throw new Error('NotFound');
     })
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch((err) => {
       if (err.name === 'CastError') {
         return next(new ValidationError('Невалидный id'));
@@ -115,7 +115,7 @@ module.exports.updateUserProfile = (req, res, next) => {
     .orFail(() => {
       throw new Error('NotFound');
     })
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         return next(new ValidationError('Переданы некорректные данные'));
@@ -141,7 +141,7 @@ module.exports.updateUserAvatar = (req, res, next) => {
     .orFail(() => {
       throw new Error('NotFound');
     })
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         return next(new ValidationError('Переданы некорректные данные'));

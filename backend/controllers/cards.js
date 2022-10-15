@@ -20,7 +20,7 @@ module.exports.createCard = (req, res, next) => {
 
 module.exports.getCards = (req, res, next) => {
   Card.find({})
-    .then((cards) => res.send({ data: cards }))
+    .then((cards) => res.send(cards))
     .catch(next);
 };
 
@@ -32,7 +32,7 @@ module.exports.deleteCard = (req, res, next) => {
     .then((card) => {
       if (card.owner.toString() === req.user._id.toString()) {
         card.remove();
-        return res.status(200).send({ data: card });
+        return res.status(200).send(card);
       } else {
         return next(new ForbiddenError('Вы не можете удалить эту карточку'));
       }

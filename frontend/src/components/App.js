@@ -41,8 +41,8 @@ function App(props) {
   React.useEffect(() => {
     Promise.all([api.getUserInfoApi(), api.getInitialCards()])
       .then(([userData, cardData]) => {
-        setCurrentUser(userData.data);
-        setCards(cardData.data);
+        setCurrentUser(userData);
+        setCards(cardData);
       })
       .catch((err) => {
         console.log(err)
@@ -160,7 +160,7 @@ function App(props) {
     api
       .updateAvatar(avatar)
       .then((data) => {
-        setCurrentUser(data.data);
+        setCurrentUser(data);
       })
       .then(() => {
         closeAllPopups();
