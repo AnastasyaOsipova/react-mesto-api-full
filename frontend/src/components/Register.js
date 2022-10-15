@@ -22,7 +22,7 @@ function Register(props) {
     auth
       .register(values.email, values.password)
       .then((res) => {
-        if (res.status(200)) {
+        if (res.data.user.email) {
           props.changeInfoTooltipstatus(true);
         }
       })

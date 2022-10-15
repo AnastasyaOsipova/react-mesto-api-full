@@ -15,14 +15,14 @@ function Main(props) {
             className="profile__avatar-edit-icon"
           >
             <img
-              src={currentUser.avatar}
+              src={currentUser.data.avatar}
               alt="Фото"
               className="profile__avatar"
             />
           </div>
           <div className="profile__text">
-            <h1 className="profile__name">{currentUser.name}</h1>
-            <p className="profile__description">{currentUser.about}</p>
+            <h1 className="profile__name">{currentUser.data.name}</h1>
+            <p className="profile__description">{currentUser.data.about}</p>
           </div>
           <button
             onClick={props.onEditProfile}
