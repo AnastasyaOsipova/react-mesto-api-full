@@ -15,7 +15,7 @@ function Main(props) {
             className="profile__avatar-edit-icon"
           >
             <img
-              src={currentUser.data.avatar}
+              src={currentUser.avatar}
               alt="Фото"
               className="profile__avatar"
             />
