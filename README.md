@@ -5,4 +5,4 @@ IP 51.250.2.196
 Frontend molchanova.students.nomoredomains.icu
 Backend api.molchanova.students.nomoredomains.icu
 
-Ссылка на репозиторий: https://github.com/AnastasyaOsipova/react-mesto-api-full.git
+https://github.com/AnastasyaOsipova/react-mesto-api-full.git
