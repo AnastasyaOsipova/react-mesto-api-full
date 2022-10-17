@@ -34,7 +34,10 @@ function Login(props) {
           props.history.push("/");
         }
       })
-      .catch((err) => console.log(err));
+      .catch(() => {
+        props.changeInfoTooltipstatus(false);
+        props.openInfoTooltip();
+      });
   }
 
   return (

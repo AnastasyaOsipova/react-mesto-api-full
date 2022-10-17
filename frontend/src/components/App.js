@@ -253,7 +253,10 @@ function App(props) {
           </Route>
 
           <Route path="/signin">
-            <Login handleLogin={handleLogin} />
+            <Login handleLogin={handleLogin}
+                   changeInfoTooltipstatus={changeInfoTooltipstatus}
+                   openInfoTooltip={openInfoTooltip}
+             />
           </Route>
           <Footer />
         </Switch>

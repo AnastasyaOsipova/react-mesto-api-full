@@ -22,12 +22,8 @@ function Register(props) {
     auth
       .register(values.email, values.password)
       .then((res) => {
-        console.log(res);
-        console.log(res.status);
-        if (res._id) {
-          console.log(res);
-          console.log(res.status);
-          props.changeInfoTooltipstatus(true);
+          if (res._id) {
+            props.changeInfoTooltipstatus(true);
         }
       })
       .catch(() => {
