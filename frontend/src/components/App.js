@@ -50,7 +50,7 @@ function App(props) {
         console.log(err)
       });
     }
-    }, [handleTokenCheck, loggedIn]);
+    }, [loggedIn]);
 
   const [cards, setCards] = React.useState([]);
 
