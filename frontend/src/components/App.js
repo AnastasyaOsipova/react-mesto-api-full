@@ -83,12 +83,13 @@ function App(props) {
 
   function handleSignOut() {
     localStorage.removeItem("token");
-    setLoggedIn(false)
+    setLoggedIn(false);
     props.history.push("/signin");
+    console.log('token')
   }
 
   function handleTokenCheck() {
-    if (localStorage.getItem("token")) {
+      if (localStorage.getItem("token")) {
       const token = localStorage.getItem("token");
       auth
         .checkToken(token)
