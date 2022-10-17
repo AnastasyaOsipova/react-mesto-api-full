@@ -81,6 +81,12 @@ function App(props) {
     handleTokenCheck();
   }
 
+  function handleSignOut() {
+    localStorage.removeItem("token");
+    setLoggedIn(false)
+    props.history.push("/signin");
+  }
+
   function handleTokenCheck() {
     if (localStorage.getItem("token")) {
       const token = localStorage.getItem("token");
@@ -221,7 +227,7 @@ function App(props) {
           onClose={closeAllPopups}
         />
 
-        <Header email={userEmail} loggedIn={loggedIn} />
+        <Header email={userEmail} loggedIn={loggedIn} signOut={handleSignOut}/>
         <Switch>
           <ProtectedRoute
             loggedIn={loggedIn}

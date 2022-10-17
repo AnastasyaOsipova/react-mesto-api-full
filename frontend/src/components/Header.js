@@ -27,7 +27,7 @@ function Header(props) {
             <h2 className="header__email header__link">{props.email}</h2>
             <button
               className="header__sign-out-button button"
-              onClick={signOut}
+              onClick={props.signOut}
             >
               Выйти
             </button>
