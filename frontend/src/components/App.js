@@ -91,7 +91,6 @@ function App(props) {
     localStorage.removeItem("token");
     setLoggedIn(false);
     props.history.push("/signin");
-    console.log('token')
   }
 
   function handleTokenCheck() {

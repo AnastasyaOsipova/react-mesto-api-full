@@ -58,13 +58,13 @@ app.use('/users', auth, userRoutes);
 
 app.use('/cards', auth, cardsRoutes);
 
+app.use((req, res, next) => {
+  next(new NotFoundError('Страница не найдена'));
+}, auth);
+
 app.use(errorLogger);
 
 app.use(errors());
-
-app.use((req, res, next) => {
-  next(new NotFoundError('Страница не найдена'));
-});
 
 app.use((err, req, res, next) => {
   const { statusCode = 500, message } = err;

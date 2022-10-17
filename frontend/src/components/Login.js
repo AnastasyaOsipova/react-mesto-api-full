@@ -30,6 +30,10 @@ function Login(props) {
           props.handleLogin();
           props.history.push("/");
         }
+        else {
+          props.changeInfoTooltipstatus(false);
+          props.openInfoTooltip();
+        }
       })
       .catch(() => {
         props.changeInfoTooltipstatus(false);
