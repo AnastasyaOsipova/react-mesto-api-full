@@ -18,11 +18,7 @@ function Login(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!values.email || !values.password) {
-      props.changeInfoTooltipstatus(false);
-      props.openInfoTooltip();
-    }
-    auth
+      auth
       .authorize(values.email, values.password)
       .then((res) => {
         if (res.token) {

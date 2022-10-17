@@ -39,7 +39,6 @@ function App(props) {
   const [isInfoTooltipOpen, setisInfoTooltipOpen] = React.useState(false);
 
   React.useEffect(() => {
-      handleTokenCheck() 
       if(loggedIn){
       Promise.all([api.getUserInfoApi(), api.getInitialCards()])
         .then(([userData, cardData]) => {
@@ -51,6 +50,10 @@ function App(props) {
       });
     }
     }, [loggedIn]);
+
+    React.useEffect(() => {
+      handleTokenCheck()
+    }, []);
 
   const [cards, setCards] = React.useState([]);
 
@@ -79,8 +82,8 @@ function App(props) {
   }
 
   function handleLogin() {
-    setLoggedIn(true);
     handleTokenCheck();
+    setLoggedIn(true);
   }
 
   function handleSignOut() {
