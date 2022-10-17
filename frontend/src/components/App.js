@@ -40,6 +40,7 @@ function App(props) {
 
   React.useEffect(() => {
       if(loggedIn){
+        api.updateToken();
       Promise.all([api.getUserInfoApi(), api.getInitialCards()])
         .then(([userData, cardData]) => {
         setCurrentUser(userData);

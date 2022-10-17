@@ -74,8 +74,16 @@ class Api {
       body: JSON.stringify(data),
     }).then(this._checkResponce);
   }
+
+  updateToken() {
+    this.headers = {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    "Content-Type": "application/json",
+    }
+  } 
 }
 
+  
 
 //const token = localStorage.getItem('token');
 
