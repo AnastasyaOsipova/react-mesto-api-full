@@ -64,7 +64,8 @@ module.exports.login = (req, res, next) => {
           next(new UnauthorizedError('Введите почту и пароль'));
         })
         .catch(next);
-    });
+    })
+    .catch(next);
 };
 
 module.exports.getUserById = (req, res, next) => {
