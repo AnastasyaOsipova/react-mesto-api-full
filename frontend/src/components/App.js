@@ -97,9 +97,16 @@ function App(props) {
           if (res) {
             setLoggedIn(true);
             setUserEmail(res.email);
-            props.history.push("/");
+            //props.history.push("/");
           }
         })
+        .then(React.useEffect(() => {
+            Promise.all([api.getUserInfoApi(), api.getInitialCards()])
+            .then(([userData, cardData]) => {
+            setCurrentUser(userData);
+            setCards(cardData);
+            props.history.push("/");
+          })
         .catch((err) => {
           console.log(err);
         });
