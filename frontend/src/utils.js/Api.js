@@ -76,12 +76,13 @@ class Api {
   }
 }
 
-const token = localStorage.getItem('token');
+
+//const token = localStorage.getItem('token');
 
 const api = new Api({
   url: "https://api.molchanova.students.nomoredomains.icu/",
   headers: {
-    Authorization: `Bearer ${token}`,
+    Authorization: `Bearer ${localStorage.getItem('token')}`,
     "Content-Type": "application/json",
   },
 });
